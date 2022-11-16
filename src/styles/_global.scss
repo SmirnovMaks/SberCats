@@ -5,7 +5,9 @@ html {
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(10, 2, 46);
+
+    background-image: linear-gradient(-110deg, #4d1253, #27083f);
+
 }
 
 h1 {
@@ -24,6 +26,30 @@ ul {
     padding: 0;
 }
 
+input {
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    font-size: 15px;
+    font-family: generalFontBold;
+    color: rgb(243, 239, 243);
+    background-color: $primaryColor;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 16px 36px rgba(182, 60, 223, 0.22);
+    padding: 15px;
+    width: 200px;
+    transition: background-color, box-shadow, 0.3s ease-in;
+}
+
+button:hover {
+    background-color: #db23d5;
+    box-shadow: 10px 10px 30px #2400ff, -10px -10px 30px #7e2bd9;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -31,4 +57,9 @@ ul {
     align-items: center;
     width: 1000px;
     margin: 0 auto;
+}
+
+option {
+    color: rgb(60, 14, 54);
+    background-color: rgb(137, 124, 144);
 }

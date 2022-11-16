@@ -2,12 +2,12 @@
 
 
 .cats {
-    color: $primaryColor;
+    color: red;
 }
 
 .cats__list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 15px;
 }
 
@@ -19,17 +19,25 @@
     flex-direction: column;
     align-items: center;
     padding: 10px;
+    color: $primaryColor;
+}
+
+i {
+    color: rgb(173, 2, 2);
 }
 
 .cats__photo {
-    width: 280px;
-    height: 150px;
+    width: 180px;
+    height: 200px;
     border-radius: 15px;
+    background-image: url('../images/baseCat.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .cats__name {
     font-family: generalFontBold;
-    color: $primaryColor;
+    color: white;
     font-size: 20px;
 }
 
@@ -49,17 +57,17 @@
 
 .cats__add {
     display: none;
-    font-size: 15px;
-    font-family: generalFontBold;
-    color: rgb(243, 239, 243);
-    background-color: $primaryColor;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0 16px 36px rgba(182, 60, 223, 0.22);
-    padding: 15px;
-    width: 200px;
-    transition: background-color, box-shadow, 0.3s ease-in;
+    // font-size: 15px;
+    // font-family: generalFontBold;
+    // color: rgb(243, 239, 243);
+    // background-color: $primaryColor;
+    // border: none;
+    // border-radius: 50px;
+    // cursor: pointer;
+    // box-shadow: 0 16px 36px rgba(182, 60, 223, 0.22);
+    // padding: 15px;
+    // width: 200px;
+    // transition: background-color, box-shadow, 0.3s ease-in;
 }
 
 .cats__add:hover {
