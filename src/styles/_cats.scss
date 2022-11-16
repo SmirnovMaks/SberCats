@@ -22,7 +22,7 @@
 }
 
 .cats__photo {
-    width: 80%;
+    width: 280px;
     height: 150px;
     border-radius: 15px;
 }
@@ -31,6 +31,20 @@
     font-family: generalFontBold;
     color: $primaryColor;
     font-size: 20px;
+}
+
+.cats__desc {
+    display: flex;
+    gap: 10px;
+}
+
+.cats__like {
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
 }
 
 .cats__add {

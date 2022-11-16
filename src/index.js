@@ -1,4 +1,4 @@
 import './styles/index.scss';
-import log from './modules/log'
+import renderCat from './modules/renderCat'
 
-log()
+renderCat()
