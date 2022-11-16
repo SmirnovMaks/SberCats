@@ -23,6 +23,7 @@ const renderCat = () => {
         addListeners() {
             document.querySelectorAll('.cats__like').forEach(el => {
                 el.addEventListener('click', e => {
+                    console.log(1);
                     let data = {}
                     if (this.favourite === true) {
                         el.innerHTML = '<i class="fa-regular fa-heart"></i>'
@@ -85,8 +86,8 @@ const renderCat = () => {
             })
     }
 
-    // setTimeout(getData, 2000)
-    getData()
+    setTimeout(getData, 2000)
+    // getData()
 
 }
 
