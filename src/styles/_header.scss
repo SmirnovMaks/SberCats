@@ -1,0 +1,21 @@
+.header__logo {
+    font-size: 80px;
+    color: $primaryColor;
+
+}
+
+.header__logo,
+h1 {
+    text-shadow: 10px 10px 30px #2400ff, -10px -10px 30px #7e2bd9;
+    -webkit-text-stroke: 2px #fc78ff;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 5px;
+}
+
+.header {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px 0 #7e2bd9;
+}

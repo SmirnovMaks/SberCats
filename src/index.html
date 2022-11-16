@@ -5,12 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Коты</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <!-- <link rel="stylesheet" href="src/styles/style.css"> -->
+    <link rel="shortcut icon" href="/src/images/favicon.ico" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://kit.fontawesome.com/b0184b4d81.js" crossorigin="anonymous"></script>
-    <script src="/dist/js/main.js" defer></script>
+    <title>Document</title>
 </head>
 
 <body>
@@ -18,11 +16,22 @@
         <div class="header__logo"><i class="fa-solid fa-shield-cat"></i></div>
         <h1 class="header__title">Коты</h1>
     </header>
-    <div class="header__border"></div>
     <section class="cats">
-        <ul class="cats__cards">
-            <li class="cats__card"></li>
-        </ul>
+        <div class="container">
+            <div class="cats__load">
+                <div class="preloader">
+                    <div class="preloader__row">
+                        <div class="preloader__item"></div>
+                        <div class="preloader__item"></div>
+                    </div>
+                </div>
+                <p>Загрузка котов</p>
+
+            </div>
+            <ul class="cats__list"></ul>
+            <button class="cats__add">Добавить кота</button>
+        </div>
+
     </section>
 </body>
 

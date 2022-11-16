@@ -1,0 +1,54 @@
+// $primaryColor: rgb(131, 81, 196);
+
+
+.cats {
+    color: $primaryColor;
+}
+
+.cats__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.cats__item {
+    border-radius: 15px;
+    border: 1px solid;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.cats__photo {
+    width: 80%;
+    height: 150px;
+    border-radius: 15px;
+}
+
+.cats__name {
+    font-family: generalFontBold;
+    color: $primaryColor;
+    font-size: 20px;
+}
+
+.cats__add {
+    display: none;
+    font-size: 15px;
+    font-family: generalFontBold;
+    color: rgb(243, 239, 243);
+    background-color: $primaryColor;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 16px 36px rgba(182, 60, 223, 0.22);
+    padding: 15px;
+    width: 200px;
+    transition: background-color, box-shadow, 0.3s ease-in;
+}
+
+.cats__add:hover {
+    background-color: #db23d5;
+    box-shadow: 10px 10px 30px #2400ff, -10px -10px 30px #7e2bd9;
+}
