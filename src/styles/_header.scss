@@ -19,3 +19,18 @@ h1 {
     align-items: center;
     box-shadow: 0 0 10px 0 #7e2bd9;
 }
+
+.footer {
+    margin-top: 30px;
+    padding: 20px;
+    display: flex;
+    // justify-content: center;
+    align-items: left;
+    box-shadow: 0 0 10px 0 #7e2bd9;
+
+    text-shadow: 10px 10px 30px #2400ff, -10px -10px 30px #7e2bd9;
+    -webkit-text-stroke: 2px #fc78ff;
+
+    letter-spacing: 5px;
+    font-family: titleFont;
+}

@@ -49,6 +49,10 @@ button:hover {
     background-color: #db23d5;
     box-shadow: 10px 10px 30px #2400ff, -10px -10px 30px #7e2bd9;
 }
+img{
+    width: 100%;
+    height: 100%;
+}
 
 .container {
     display: flex;
@@ -59,7 +63,11 @@ button:hover {
     margin: 0 auto;
 }
 
-option {
-    color: rgb(60, 14, 54);
-    background-color: rgb(137, 124, 144);
+.load {
+    color: white;
 }
+
+// option {
+//     color: rgb(60, 14, 54);
+//     background-color: rgb(137, 124, 144);
+// }

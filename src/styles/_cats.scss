@@ -7,27 +7,40 @@
 
 .cats__list {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
 }
 
 .cats__item {
     border-radius: 15px;
-    border: 1px solid;
-    height: 200px;
+    background-color: whitesmoke;
+    border: 1px solid white;
+    width: 300px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px;
     color: $primaryColor;
+    transition: transform 0.7s;
+    cursor: pointer;
 }
 
-i {
+.cats__item:hover {
+    transform: scale(1.1);
+}
+
+.cats__like i {
     color: rgb(173, 2, 2);
+    transition: transform 0.3s;
+}
+
+.cats__like i:hover {
+    transform: scale(1.1);
 }
 
 .cats__photo {
-    width: 180px;
+    width: 250px;
     height: 200px;
     border-radius: 15px;
     background-image: url('../images/baseCat.png');
@@ -37,8 +50,12 @@ i {
 
 .cats__name {
     font-family: generalFontBold;
-    color: white;
+    // color: white;
     font-size: 20px;
+    // text-shadow: 1px 0 1px #000,
+    //     0 1px 1px #000,
+    //     -1px 0 1px #000,
+    //     0 -1px 1px #000;
 }
 
 .cats__desc {
@@ -57,6 +74,7 @@ i {
 
 .cats__add {
     display: none;
+    margin-top: 20px;
     // font-size: 15px;
     // font-family: generalFontBold;
     // color: rgb(243, 239, 243);
@@ -70,7 +88,17 @@ i {
     // transition: background-color, box-shadow, 0.3s ease-in;
 }
 
-.cats__add:hover {
-    background-color: #db23d5;
-    box-shadow: 10px 10px 30px #2400ff, -10px -10px 30px #7e2bd9;
+// .cats__add:hover {
+//     background-color: #db23d5;
+//     box-shadow: 10px 10px 30px #2400ff, -10px -10px 30px #7e2bd9;
+// }
+
+.cats__rate {
+    display: flex;
+    gap: 5px;
+    font-size: 15px;
+}
+
+.cats__modal {
+    display: none;
 }

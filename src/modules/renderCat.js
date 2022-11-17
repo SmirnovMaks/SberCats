@@ -1,4 +1,55 @@
+
 const renderCat = () => {
+    let catsList = document.querySelector('.cats__list')
+    let addCatBtn = document.querySelector('.modal__btn')
+
+
+    // const getActualId = async () => {
+    //     await fetch('https://sb-cats.herokuapp.com/api/2/SmirnovMaks/ids')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data.data);
+
+    //         })
+    // }
+
+
+
+
+
+    // console.log(maxId);
+    const addCat = () => {
+        addCatBtn.addEventListener('click', (e) => {
+            e.preventDefault()
+            const form = document.querySelector('.modal')
+            const inputName = form.querySelector('.inputName')
+            const inputPhoto = form.querySelector('.inputPhoto')
+            const inputDesc = form.querySelector('.inputDesc')
+            const inputAge = form.querySelector('.inputAge')
+            let data = {
+                id: Math.ceil(Math.random() * 100 + 100),
+                favourite: false,
+                rate: 1,
+            }
+            if (inputName.value && inputPhoto.value && inputDesc.value && inputAge.value) {
+
+                data.name = inputName.value
+                data.img_link = inputPhoto.value
+                data.description = inputDesc.value
+                data.age = +inputAge.value
+                fetch('https://sb-cats.herokuapp.com/api/2/SmirnovMaks/add', {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                })
+                form.style.display = 'none'
+                renderCat(data, catsList)
+            }
+
+        })
+    }
 
     const renderCat = (cat, parent) => {
         let catLoad = document.querySelector('.cats__load')
@@ -12,9 +63,9 @@ const renderCat = () => {
         if (cat.img_link) {
             img = cat.img_link
         } else {
-            img = 'D:\Projects\SberCats\src\images\baseCat.png'
+            img = '../images/baseCat.png'
         }
-        console.log(img);
+
         const card = document.createElement('li')
         card.className = 'cats__item'
 
@@ -22,8 +73,6 @@ const renderCat = () => {
         catPhoto.className = 'cats__photo'
         if (cat.img_link) {
             catPhoto.style.backgroundImage = `url(${cat.img_link})`
-        } else {
-
         }
 
         const catDesc = document.createElement('div')
@@ -37,19 +86,55 @@ const renderCat = () => {
         catLike.className = 'cats__like'
         catLike.innerHTML = like
 
-        catDesc.append(catName, catLike)
-        card.append(catPhoto, catDesc)
+        const catRate = document.createElement('div')
+        catRate.className = 'cats__rate'
+        for (let i = 0; i < 10; i++) {
+            let icon = document.createElement('i')
+            if (i < cat.rate) {
+                icon.innerHTML = '<i class="fa-solid fa-star"></i>'
 
-        // card.innerHTML = `<li class="cats__item"><img class="cats__photo" src="${img}" alt=""><div class="cats__desc"><h3 class="cats__name">${cat.name}   </h3><div class="cats__like">${like}</div></div></li>`
+            } else {
+                icon.innerHTML = '<i class="fa-regular fa-star"></i>'
+            }
+            catRate.append(icon)
+        }
+
+        const catModal = document.createElement('div')
+        catModal.className = 'cats__modal'
+
+        const catsContainer = document.createElement('div')
+        catsContainer.className = 'cats__container'
+        catsContainer.innerHTML = '<div class="modal__close"><i class="fa-solid fa-xmark"></i></div>'
+
+        const catModalPhoto = document.createElement('div')
+        catModalPhoto.className = 'cat__modalPhoto'
+        catModalPhoto.innerHTML = `<img src=${cat.img_link} alt="">`
+
+        const catModalDesc = document.createElement('div')
+        catModalDesc.className = 'cat__modalDesc'
+        catModalDesc.innerHTML = `<h3>${cat.name}</h3><p>${cat.age} y.o.</p><p>${cat.description}</p>`
+
+
+        catsContainer.append(catModalPhoto, catModalDesc)
+        catModal.append(catsContainer)
+        document.querySelector('.cats').append(catModal)
+
+
+        catDesc.append(catName, catLike)
+        card.append(catPhoto, catDesc, catRate)
+
 
         document.querySelector('.cats__list').append(card)
 
         catAdd.style.display = 'block'
 
+        card.addEventListener('click', () => {
+            catModal.style.display = 'block'
+        })
+
         let likeBtn = card.querySelector('i')
 
         likeBtn.addEventListener('click', (el) => {
-            console.log(likeBtn.className);
             let data = {}
             if (likeBtn.className == "fa-solid fa-heart") {
                 likeBtn.className = "fa-regular fa-heart"
@@ -70,8 +155,9 @@ const renderCat = () => {
                 },
             })
         })
+
+
     }
-    let catsList = document.querySelector('.cats__list')
 
     fetch('https://sb-cats.herokuapp.com/api/2/SmirnovMaks/show')
         .then(res => res.json())
@@ -80,6 +166,9 @@ const renderCat = () => {
                 renderCat(cat, catsList)
             })
         })
+
+
+    addCat()
 
 
 

@@ -25,17 +25,16 @@
                         <div class="preloader__item"></div>
                     </div>
                 </div>
-                <p>Загрузка котов</p>
+                <p class="load">Загрузка котов</p>
 
             </div>
             <ul class="cats__list"></ul>
             <button class="cats__add">Добавить кота</button>
         </div>
-        <footer class="footer"></footer>
         <form action="#" class="modal">
             <div class="modal__inner">
                 <div class="modal__close">
-
+                    <i class="fa-solid fa-xmark"></i>
                 </div>
                 <h3 class="modal__header">
                     Добавление кота
@@ -45,17 +44,17 @@
                 </div>
                 <div class="modal__elements ">
                     <div class="modal__item">
-                        <input type="text" class="modal__input" placeholder="Имя кота">
+                        <input type="text" class="modal__input inputName" placeholder="Имя кота">
                     </div>
                     <div class="modal__item">
-                        <input type="text" class="modal__input" placeholder="Ссылка на фотографию">
+                        <input type="text" class="modal__input inputPhoto" placeholder="Ссылка на фотографию">
                     </div>
                     <div class="modal__item">
-                        <textarea name="" id="" class="modal__input modal__desc" cols="30" rows="7"
+                        <textarea name="" id="" class="modal__input modal__desc inputDesc" cols="30" rows="7"
                             placeholder="Описание кота"></textarea>
                         <!-- <input type="text" class="modal__input modal__desc" placeholder="Описание кота"> -->
                     </div>
-                    <select name="age" id="age" class="modal__input">
+                    <select name="age" id="age" class="modal__input inputAge">
                         <option value="">Возраст кота</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -79,10 +78,11 @@
                         <option value="20">20</option> -->
                     </select>
                 </div>
-                <button class="modal__btn ">Добавить</button>
+                <button class="modal__btn button__modal">Добавить</button>
             </div>
         </form>
     </section>
+    <footer class="footer">2022 Коты</footer>
 </body>
 
 </html>
