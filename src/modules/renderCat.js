@@ -155,8 +155,6 @@ const renderCat = () => {
                 },
             })
         })
-
-
     }
 
     fetch('https://sb-cats.herokuapp.com/api/2/SmirnovMaks/show')
@@ -166,7 +164,6 @@ const renderCat = () => {
                 renderCat(cat, catsList)
             })
         })
-
 
     addCat()
 
