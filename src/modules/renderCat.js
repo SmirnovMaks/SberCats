@@ -128,9 +128,9 @@ const renderCat = () => {
 
         catAdd.style.display = 'block'
 
-        card.addEventListener('click', () => {
-            catModal.style.display = 'block'
-        })
+        // card.addEventListener('click', () => {
+        //     catModal.style.display = 'block'
+        // })
 
         let likeBtn = card.querySelector('i')
 
