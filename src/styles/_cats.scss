@@ -56,20 +56,23 @@
     //     0 1px 1px #000,
     //     -1px 0 1px #000,
     //     0 -1px 1px #000;
+    margin: 5px;
 }
 
 .cats__desc {
     display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
-.cats__like {
+.cat__modal-like {
     font-size: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     cursor: pointer;
+    color: rgb(222, 53, 53);
 }
 
 .cats__add {
@@ -97,6 +100,8 @@
     display: flex;
     gap: 5px;
     font-size: 15px;
+    margin: 0 0 5px 0;
+    ;
 }
 
 .cats__modal {

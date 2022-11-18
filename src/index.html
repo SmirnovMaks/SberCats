@@ -44,16 +44,38 @@
                 </div>
                 <div class="modal__elements ">
                     <div class="modal__item">
+                        <input type="number" class="modal__input inputId" placeholder="Идентификатор кота">
+                    </div>
+                    <div class="modal__item">
                         <input type="text" class="modal__input inputName" placeholder="Имя кота">
                     </div>
                     <div class="modal__item">
                         <input type="text" class="modal__input inputPhoto" placeholder="Ссылка на фотографию">
                     </div>
                     <div class="modal__item">
-                        <textarea name="" id="" class="modal__input modal__desc inputDesc" cols="30" rows="7"
+                        <textarea name="" id="" class="modal__input modal__desc inputDesc" cols="30" rows="2"
                             placeholder="Описание кота"></textarea>
                         <!-- <input type="text" class="modal__input modal__desc" placeholder="Описание кота"> -->
                     </div>
+                    <div class="modal__check">
+                        <label for="check">
+                            <h3>Любимец</h3>
+                        </label>
+                        <input id="check" type="checkbox" class="modal__input input__check">
+                    </div>
+                    <select name="rate" id="rate" class="modal__input inputAge">
+                        <option value="">Рейтинг кота</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
                     <select name="age" id="age" class="modal__input inputAge">
                         <option value="">Возраст кота</option>
                         <option value="1">1</option>
@@ -78,11 +100,21 @@
                         <option value="20">20</option> -->
                     </select>
                 </div>
-                <button class="modal__btn button__modal">Добавить</button>
+                <button class="modal__btn button__modal add__cat">Добавить</button>
             </div>
         </form>
     </section>
     <footer class="footer">2022 Коты</footer>
+    <!-- <div class="cat__modal-wrapper">
+        <div class="cat__modal-photo"><img src="" alt=""></div>
+        <div class="cat__modal-info">
+            <h3 class="cat__modal-name"></h3>
+            <div class="cat__modal-like"></div>
+            <div class="cat__modal-description"></div>
+            <button class="cat__modal-update"></button>
+            <button class="cat__modal-delete"></button>
+        </div>
+    </div> -->
 </body>
 
 </html>

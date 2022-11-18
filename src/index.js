@@ -1,6 +1,8 @@
 import './styles/index.scss';
-import renderCat from './modules/renderCat'
-import modal from './modules/modal'
+import modal from './modules/modalAddCat'
+import addCat from './modules/addCat'
 
-renderCat()
+// renderCat()
 modal()
+
+addCat()

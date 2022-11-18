@@ -22,7 +22,7 @@ const modal = () => {
     addBtn.addEventListener('click', e => {
         modalWindow.style.display = 'block'
         animate({
-            duration: 500,
+            duration: 300,
             timing(timeFraction) {
                 return timeFraction;
             },

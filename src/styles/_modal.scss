@@ -11,27 +11,15 @@
     display: none;
 }
 
-.cats__modal {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    z-index: 10;
-    padding: 30px 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: none;
-}
-
 .modal__inner {
     position: relative;
     color: white;
-    width: 400px;
-    height: 600px;
+    width: 500px;
+    height: 700px;
     background-image: linear-gradient(-110deg, #4d1253, #27083f);
     margin: 0 auto;
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
     border-radius: 15px;
@@ -39,20 +27,7 @@
     gap: 20px;
 }
 
-.cats__container {
-    padding: 30px;
-    position: relative;
-    color: white;
-    width: 700px;
-    height: 400px;
-    background-image: linear-gradient(-110deg, #4d1253, #27083f);
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    border-radius: 15px;
-    border: 1px solid;
-    gap: 20px;
-}
+
 
 .modal__header {
     margin-bottom: 10px;
@@ -84,9 +59,32 @@
 }
 
 .modal__desc {
-    height: 120px;
+    height: 80px;
     line-height: 100%;
     padding: 3px 30px 0 30px;
+}
+
+.modal__check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 22px;
+    text-align: center;
+
+}
+
+label {
+    padding-left: 120px;
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+.input__check {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
 }
 
 .modal__close {
@@ -99,8 +97,41 @@
     cursor: pointer;
 }
 
-.cat__modalPhoto {
+.cat__modal {
+    position: fixed;
+    inset: 0;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 10;
+    padding: 80px 0;
+    background: rgba(0, 0, 0, 0.7);
+    // display: none;
+}
+
+.cat__modal-wrapper {
+    padding: 30px;
+    position: relative;
+    color: white;
+    width: 70%;
+    background-image: linear-gradient(-110deg, #2b062f, #1b032d);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 15px;
+    border: 1px solid;
+    gap: 20px;
+}
+
+.cat__modal-photo {
+    width: 500px;
+    height: 350px;
+    border: 1px solid;
+    border-radius: 25px;
+}
+
+.cat__modal-photo img {
+    border-radius: 25px;
 }
