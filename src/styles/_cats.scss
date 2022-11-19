@@ -30,13 +30,13 @@
     transform: scale(1.1);
 }
 
-.cats__like i {
+.cat__modal-like i {
     color: rgb(173, 2, 2);
     transition: transform 0.3s;
 }
 
-.cats__like i:hover {
-    transform: scale(1.1);
+.cat__modal-like i:hover {
+    transform: scale(1.5);
 }
 
 .cats__photo {
