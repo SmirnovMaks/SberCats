@@ -36,7 +36,7 @@
         <footer class="footer">2022 Коты</footer>
     </main>
     <div action="#" class="modal">
-        <form class="modal__inner">
+        <form name="addCat" class="modal__inner">
             <div class="modal__close">
                 <i class="fa-solid fa-xmark"></i>
             </div>
@@ -48,21 +48,23 @@
             </div>
             <div class="modal__elements ">
                 <div class="modal__item">
-                    <input type="number" class="modal__input inputId" placeholder="Идентификатор кота" required>
+                    <input name="id" type="number" class="modal__input inputId" placeholder="Идентификатор кота"
+                        required>
                 </div>
                 <div class="modal__item">
-                    <input type="text" class="modal__input inputName" placeholder="Имя кота" required>
+                    <input name="name" type="text" class="modal__input inputName" placeholder="Имя кота" required>
                 </div>
                 <div class="modal__item">
-                    <input type="text" class="modal__input inputPhoto" placeholder="Ссылка на фотографию">
+                    <input name="img_link" type="text" class="modal__input inputPhoto"
+                        placeholder="Ссылка на фотографию">
                 </div>
                 <div class="modal__item">
-                    <textarea name="" id="" class="modal__input modal__desc inputDesc" cols="30" rows="2"
+                    <textarea name="description" id="" class="modal__input modal__desc inputDesc" cols="30" rows="2"
                         placeholder="Описание кота"></textarea>
                 </div>
                 <div class="modal__check">
 
-                    <input id="check" type="checkbox" class=" input__check">
+                    <input name="favourite" id="check" type="checkbox" class="input__check">
                     <label for="check">
                         <h3>Любимец</h3>
                     </label>

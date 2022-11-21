@@ -2,32 +2,24 @@ import { Cats } from './cat'
 import api from './api'
 
 const addCat = () => {
-    const addCatBtn = document.querySelector('.add__cat')
+    const form = document.forms.addCat
 
-    addCatBtn.addEventListener('submit', (e) => {
+    form.addEventListener('submit', (e) => {
         e.preventDefault()
-        const form = document.querySelector('.modal')
-        const inputName = form.querySelector('.inputName')
-        const inputPhoto = form.querySelector('.inputPhoto')
-        const inputDesc = form.querySelector('.inputDesc')
-        const inputAge = form.querySelector('.inputAge')
-        let data = {
-            id: Math.ceil(Math.random() * 100 + 100),
-            favourite: false,
-            rate: 1,
-        }
-        // if (inputName.value && inputPhoto.value && inputDesc.value && inputAge.value) {
-        data.name = inputName.value
-        data.img_link = inputPhoto.value
-        data.description = inputDesc.value
-        data.age = +inputAge.value
+        let data = Object.fromEntries(new FormData(form).entries())
+        data.id = +data.id
+        data.age = +data.age
+        data.favourite = data.favourite === 'on'
+        console.log(data);
+
+
 
         api.addCat(data)
 
-        new Cats(data.id, data.name, data.age, data.favourite, data.img_link, data.description, data.rate).init()
-        form.style.display = 'none'
-        // }
-
+        new Cats(data.id, data.name, data.age, data.favourite, data.img_link, data.description, data.rate)
+        document.querySelector('.modal').style.display = 'none'
+        document.querySelector('main').style.filter = ''
+        form.reset()
     })
 
     api.getCats()
