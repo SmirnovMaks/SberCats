@@ -30,15 +30,6 @@
     transform: scale(1.1);
 }
 
-.cat__modal-like i {
-    color: rgb(173, 2, 2);
-    transition: transform 0.3s;
-}
-
-.cat__modal-like i:hover {
-    transform: scale(1.5);
-}
-
 .cats__photo {
     width: 250px;
     height: 200px;
@@ -98,12 +89,46 @@
 
 .cats__rate {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 5px;
     font-size: 15px;
-    margin: 0 0 5px 0;
+
     ;
 }
 
 .cats__modal {
     display: none;
+}
+
+.cat__modal-btn {
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.cats__rate-wrapper {
+    display: flex;
+
+
+    gap: 10px;
+}
+
+.plus {
+    font-size: 20px;
+}
+
+.plus:hover {
+    background-color: $primaryColor;
+    border-radius: 50%;
+    color: white;
+}
+
+.minus {
+    font-size: 20px;
+}
+
+.minus:hover {
+    background-color: $primaryColor;
+    border-radius: 50%;
+    color: white;
 }

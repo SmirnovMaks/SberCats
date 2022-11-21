@@ -1,5 +1,5 @@
 class API {
-    constructor(url) {
+    constructor(url, userName) {
         this.url = url
     }
 
@@ -12,6 +12,16 @@ class API {
     updateCat(data, id) {
         fetch(`${this.url}/update/${id}`, {
             method: 'PUT',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+    }
+
+    addCat(data) {
+        fetch('https://sb-cats.herokuapp.com/api/2/SmirnovMaks/add', {
+            method: 'POST',
             body: JSON.stringify(data),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
