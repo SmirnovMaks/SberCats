@@ -1,4 +1,4 @@
-import api from './api'
+import { api } from './api'
 
 export class CatModal {
     constructor(id, name, age, favourite, img_link, description, rate) {
@@ -11,43 +11,122 @@ export class CatModal {
             this.rate = rate,
             this.init()
     }
+
+    //  sorry for this.shit
+
     renderCatModal() {
         const catModal = document.createElement('div')
         catModal.className = `cat__modal cat__modal-${this.id}`
         catModal.style.display = 'none'
 
-        let like = ''
-        this.favourite ? like = '<i class="fa-solid fa-heart"></i>' : like = '<i class="fa-regular fa-heart"></i>';
+        let like = this.favourite ? '<i class="fa-solid fa-heart"></i>' : '<i class="fa-regular fa-heart"></i>'
 
-        let photo = ''
-        this.img_link ? photo = `<img src="${this.img_link}" alt="Cat"></img>` : photo = `<div class='base__img'></div>`
+
+        let photo = this.img_link ? `<img src="${this.img_link}" alt="Cat"></img>` : `<div class='base__img'></div>`
+
+
+        let description = this.description ? this.description : ''
 
 
         catModal.innerHTML = `<div class="cat__modal-wrapper"><div class="modal__close"><i class="fa-solid fa-xmark"></i>
-                </div><div class="cat__modal-photo">${photo}</div><div class="cat__modal-info"><h2 class="cat__modal-name">${this.name}</h2><p class='cat__modal-age'>${this.age} y.o.</p></p><div class="cat__modal-like">${like}</div><div class="cat__modal-description">${this.description}</div><div class="cat__modal-buttons"><div class="cat__modal-btn"><i class="cat__modal-btn fa-solid fa-pen-to-square"></i></div><div class="cat__modal-btn"><i class="cat__modal-delete fa-solid fa-trash"></i></div></div></div></div>`
+                </div><div class="cat__modal-photo">${photo}</div><div class="cat__modal-info"><div class='cat__wrapper'><h2 class="cat__modal-name">${this.name}</h2><p class='cat__modal-age'>${this.age} y.o.</p></p><div class="cat__modal-like">${like}</div><div class="cat__modal-description"><p>${description}</p></div><div class="cat__modal-buttons"><div class="cat__modal-btn change__info"><i class="cat__modal-btn fa-solid fa-pen-to-square"></i></div><div class="cat__modal-btn"><i class="cat__modal-delete fa-solid fa-trash"></i></div></div></div></div></div>`
         document.body.append(catModal)
     }
-    //<i class="fa-solid fa-square-check"></i>
+
+    createFormOfChangeInfo() {
+        const modal = document.querySelector(`.cat__modal-${this.id}`)
+
+        const form = document.createElement('form')
+        const title = document.createElement('h3')
+        const inputName = document.createElement('input')
+        const inputAge = document.createElement('input')
+        const inputDescription = document.createElement('textarea')
+        const inputPhoto = document.createElement('input')
+        const submit = document.createElement('button')
+        const buttons = document.createElement('div')
+        const cancel = document.createElement('div')
+        title.textContent = 'Изменить информацию'
+        submit.type = 'submit'
+        cancel.className = 'cat__modal-cancel'
+        buttons.className = 'd-flex'
+        form.className = 'change__form'
+        form.id = 'form_' + this.id
+        form.style.display = 'none'
+        inputName.className = 'modal__input name'
+        inputAge.className = 'modal__input age'
+        inputAge.type = 'number'
+        inputDescription.className = 'modal__desc modal__input descr'
+        inputPhoto.className = 'modal__input photo'
+        inputName.placeholder = 'Имя кота'
+        inputAge.placeholder = 'Возраст кота'
+        inputPhoto.placeholder = 'Ссылка на фото кота'
+        inputDescription.placeholder = 'Описание кота'
+        submit.innerHTML = '<i class="cat__modal-btn fa-solid fa-square-check"></i>'
+        cancel.innerHTML = '<i class="cat__modal-btn fa-solid fa-square-xmark"></i>'
+        buttons.append(submit, cancel)
+        form.append(title, inputName, inputAge, inputDescription, inputPhoto, buttons)
+        modal.querySelector('.cat__modal-info').append(form)
+    }
 
     updateLike() {
         const modal = document.querySelector(`.cat__modal-${this.id}`)
-        modal.querySelector(`.cat__modal-like`).addEventListener('click', () => {
+        let data = {
+            favourite: true
+        }
+        if (modal.querySelector('.cat__modal-like i').className == 'fa-regular fa-heart') {
+            modal.querySelector('.cat__modal-like i').className = 'fa-solid fa-heart'
+            data.favourite = true
 
-            let data = {
-                favourite: true
-            }
-            if (modal.querySelector('.cat__modal-like i').className == 'fa-regular fa-heart') {
-                modal.querySelector('.cat__modal-like i').className = 'fa-solid fa-heart'
-                data.favourite = true
+        } else if (modal.querySelector('.cat__modal-like i').className == 'fa-solid fa-heart') {
+            modal.querySelector('.cat__modal-like i').className = 'fa-regular fa-heart'
+            data.favourite = false
+        }
+        api.updateCat(data, this.id)
 
-            } else if (modal.querySelector('.cat__modal-like i').className == 'fa-solid fa-heart') {
-                modal.querySelector('.cat__modal-like i').className = 'fa-regular fa-heart'
-                data.favourite = false
-            }
-            api.updateCat(data, this.id)
-        })
 
     }
+
+    changeInfoOfCat() {
+        const modal = document.querySelector(`.cat__modal-${this.id}`)
+        const name = modal.querySelector('.cat__modal-name')
+        const photo = modal.querySelector('.cat__modal-photo')
+        const description = modal.querySelector('.cat__modal-description')
+        const age = modal.querySelector('.cat__modal-age')
+
+        const form = document.querySelector(`#form_${this.id}`)
+        const inputName = form.querySelector('.name')
+        const inputAge = form.querySelector('.age')
+        const inputDescription = form.querySelector('.descr')
+        const inputPhoto = form.querySelector('.photo')
+        const cancel = form.querySelector('.cat__modal-cancel')
+
+        cancel.addEventListener('click', e => {
+            form.style.display = 'none'
+            modal.querySelector('.cat__wrapper').style.display = 'flex'
+        })
+
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault()
+
+            const card = document.querySelector(`.cat_${this.id}`)
+            const cardName = card.querySelector('.cats__name')
+            const cardPhoto = card.querySelector('.cats__photo')
+
+            let data = {}
+            inputName.value ? (data.name = inputName.value, name.textContent = data.name, cardName.textContent = data.name) : ''
+            inputAge.value ? (data.age = +inputAge.value, age.textContent = inputAge.value + ' y.o.') : ''
+            inputDescription.value ? (data.description = inputDescription.value, description.textContent = inputDescription.value) : ''
+            inputPhoto.value ? (data.img_link = inputPhoto.value, photo.innerHTML = `<img src="${inputPhoto.value}" alt="Cat"></img>`, cardPhoto.style.backgroundImage = `url(${data.img_link})`) : ''
+
+            api.updateCat(data, this.id)
+            modal.querySelector('.cat__wrapper').style.display = 'flex'
+            form.style.display = 'none'
+            form.reset()
+
+        })
+    }
+
     addListener() {
         const card = document.querySelector(`.cat_${this.id}`)
         const modal = document.querySelector(`.cat__modal-${this.id}`)
@@ -62,13 +141,18 @@ export class CatModal {
             } else if (e.target.closest('.modal__close')) {
                 modal.style.display = 'none'
                 document.querySelector('main').style.filter = ''
-            } else if (e.target.closest('.cat__modal-update')) {
-                console.log(2);
             } else if (!e.target.closest('.cat__modal-wrapper')) {
                 modal.style.display = 'none'
                 document.querySelector('main').style.filter = ''
             } else if (e.target.closest('.cat__modal-like')) {
+                this.updateLike()
+            } else if (e.target.closest('.cat__modal-cancel')) {
 
+            } else if (e.target.closest('.change__info')) {
+                const form = document.querySelector(`#form_${this.id}`)
+                form.style.display = 'flex'
+                modal.querySelector('.cat__wrapper').style.display = 'none'
+                this.changeInfoOfCat()
             }
         })
 
@@ -76,7 +160,7 @@ export class CatModal {
 
     init() {
         this.renderCatModal()
-        this.updateLike()
         this.addListener()
+        this.createFormOfChangeInfo()
     }
 }

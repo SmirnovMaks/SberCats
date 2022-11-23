@@ -1,4 +1,4 @@
-import api from './api'
+import { api } from './api'
 import { CatModal } from './catModal';
 
 import {
@@ -63,7 +63,6 @@ export class Cats {
         const ratePlus = () => {
             if (this.rate === null || !this.rate || isNaN(this.rate)) {
                 this.rate = 0
-
             }
             if (this.rate != 10) {
                 this.rate++
@@ -93,7 +92,6 @@ export class Cats {
             } else if (e.target.closest('.minus')) {
                 rateMinus()
             } else {
-                console.log(this.rate);
                 modal.style.display = 'block'
                 document.querySelector('main').style.filter = 'blur(3px)'
                 animate({
@@ -106,10 +104,7 @@ export class Cats {
                     }
                 })
             }
-
         })
-
-
     }
 
     init() {

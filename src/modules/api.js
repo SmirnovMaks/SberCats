@@ -19,19 +19,19 @@ class API {
         })
     }
 
-    addCat(data) {
-        fetch('https://sb-cats.herokuapp.com/api/2/SmirnovMaks/add', {
+    async addCat(data) {
+        const res = await fetch(`${this.url}/add`, {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
         })
+        return res.json()
     }
 
     async getCatById(id) {
         const res = await fetch(`${this.url}/show/${id}`)
-        console.log(2);
         return res.json()
     }
 
@@ -42,6 +42,11 @@ class API {
     }
 }
 
-const api = new API('https://sb-cats.herokuapp.com/api/2/SmirnovMaks')
+// const login = 'SmirnovMaks'
+// const loginToLS = JSON.stringify(login)
+// localStorage.setItem('value', loginToLS)
 
-export default api
+
+const api = new API(`https://sb-cats.herokuapp.com/api/2/SmirnovMaks`)
+
+export { api }
