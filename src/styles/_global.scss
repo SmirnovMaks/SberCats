@@ -10,6 +10,13 @@ body {
 
 }
 
+main {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 120px 1fr 120px;
+
+}
+
 //  background-image: linear-gradient(-110deg, #320937, #23053b);
 
 h1 {
