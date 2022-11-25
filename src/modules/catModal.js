@@ -155,13 +155,13 @@ export class CatModal {
                 modal.remove()
                 api.deleteCat(this.id)
             } else if (e.target.closest('.modal__close')) {
-                const form = document.querySelector(`#form_${this.id}`)
+                const form = modal.querySelector(`#form_${this.id}`)
                 modal.querySelector('.cat__wrapper').style.display = 'flex'
                 form.style.display = 'none'
                 modal.style.display = 'none'
                 document.querySelector('main').style.filter = ''
             } else if (!e.target.closest('.cat__modal-wrapper')) {
-                const form = document.querySelector(`#form_${this.id}`)
+                const form = modal.querySelector(`#form_${this.id}`)
                 modal.querySelector('.cat__wrapper').style.display = 'flex'
                 form.style.display = 'none'
                 modal.style.display = 'none'
@@ -171,7 +171,7 @@ export class CatModal {
             } else if (e.target.closest('.cat__modal-cancel')) {
 
             } else if (e.target.closest('.change__info')) {
-                const form = document.querySelector(`#form_${this.id}`)
+                const form = modal.querySelector(`#form_${this.id}`)
                 modal.querySelector('.cat__wrapper').style.display = 'none'
                 form.style.display = 'flex'
                 this.changeInfoOfCat()
