@@ -52,11 +52,11 @@ input {
     padding: 15px;
     width: 200px;
     transition: background-color, box-shadow, 0.3s ease-in;
-}
 
-.button:hover {
-    background-color: #db23d5;
-    box-shadow: 10px 10px 30px #2400ff, -10px -10px 30px #7e2bd9;
+    &:hover {
+        background-color: #db23d5;
+        box-shadow: 10px 10px 30px #2400ff, -10px -10px 30px #7e2bd9;
+    }
 }
 
 img {

@@ -116,20 +116,20 @@
 
 .plus {
     font-size: 20px;
-}
 
-.plus:hover {
-    background-color: $primaryColor;
-    border-radius: 50%;
-    color: white;
+    &:hover {
+        background-color: $primaryColor;
+        border-radius: 50%;
+        color: white;
+    }
 }
 
 .minus {
     font-size: 20px;
-}
 
-.minus:hover {
-    background-color: $primaryColor;
-    border-radius: 50%;
-    color: white;
+    &:hover {
+        background-color: $primaryColor;
+        border-radius: 50%;
+        color: white;
+    }
 }

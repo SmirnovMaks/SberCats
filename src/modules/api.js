@@ -42,11 +42,6 @@ class API {
     }
 }
 
-// const login = 'SmirnovMaks'
-// const loginToLS = JSON.stringify(login)
-// localStorage.setItem('value', loginToLS)
-
-
 const api = new API(`https://sb-cats.herokuapp.com/api/2/SmirnovMaks`)
 
 export { api }
