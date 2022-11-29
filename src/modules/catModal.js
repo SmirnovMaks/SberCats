@@ -130,14 +130,17 @@ export class CatModal {
 
             let data = {}
             inputName.value ? (data.name = inputName.value, name.textContent = data.name, cardName.textContent = data.name, this.name = inputName.value) : ''
+
             inputAge.value ? (data.age = +inputAge.value, age.textContent = inputAge.value + ' y.o.', this.age = inputAge.value) : ''
-            inputDescription.value ? (data.description = inputDescription.value, description.textContent = inputDescription.value, this.description = inputDescription.value) : ''
-            inputPhoto.value ? (data.img_link = inputPhoto.value, photo.innerHTML = `<img src="${inputPhoto.value}" alt="Cat"></img>`, cardPhoto.style.backgroundImage = `url(${data.img_link})`, this.img_link = inputPhoto.value) : ''
+
+            inputDescription.value ? (data.description = inputDescription.value, description.textContent = inputDescription.value, this.description = inputDescription.value) : (data.description = '', description.textContent = '', this.description = '')
+
+            inputPhoto.value ? (data.img_link = inputPhoto.value, photo.innerHTML = `<img src="${inputPhoto.value}" alt="Cat"></img>`, cardPhoto.style.backgroundImage = `url(${data.img_link})`, this.img_link = inputPhoto.value) : (data.img_link = '', photo.innerHTML = '<div class="base__img"></div>', cardPhoto.style.backgroundImage = ``, this.img_link = inputPhoto.value)
+
 
             api.updateCat(data, this.id)
             modal.querySelector('.cat__wrapper').style.display = 'flex'
             form.style.display = 'none'
-            form.reset()
 
         })
     }
